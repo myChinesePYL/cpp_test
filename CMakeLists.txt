@@ -1,21 +1,29 @@
 cmake_minimum_required(VERSION 3.16)
-project(CCML)
+project(NNSans)
 
 set(CMAKE_CXX_STANDARD 17)
 # 需安装的库
 #  - raylib
+#  - transition (github.com/mychinesepyl/transition)
 find_package(raylib 3.0 REQUIRED)
 
 # build
 add_executable(${CMAKE_PROJECT_NAME} main.cpp)
 
 # 后期处理
-include_directories(${CMAKE_PREFIX_PATH}/include)
-link_directories(${CMAKE_PREFIX_PATH}/lib)
+include_directories(
+  ${CMAKE_PREFIX_PATH}/include/
+  ${CMAKE_INSTALL_PREFIX}/include/
+)
+link_directories(
+  ${CMAKE_PREFIX_PATH}/lib/
+  ${CMAKE_INSTALL_PREFIX}/lib/
+)
 
 target_link_libraries(
   ${CMAKE_PROJECT_NAME}
   raylib
+  transition
 )
 target_compile_features(${CMAKE_PROJECT_NAME} PRIVATE cxx_std_17)
 # 资源文件(无法塞进可执行文件的)
