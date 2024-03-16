@@ -1,9 +1,11 @@
-#include <iostream>
+// #include <iostream>
+#include <ftxui/screen/screen.hpp>
+#include <ftxui/dom/elements.hpp>
+#include <ftxui/component/screen_interactive.hpp>
+#include <ftxui/component/component.hpp>
 
 int main() {
-  for(int i = 0; i < 10; i++){
-    std::cout << std::string(i, 'm') << std::endl;
-  }
+  auto screen = ftxui::ScreenInteractive::TerminalOutput();
 
   return 0;
 }
