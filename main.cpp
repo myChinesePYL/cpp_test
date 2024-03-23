@@ -1,9 +1,22 @@
-#include <ftxui/component/screen_interactive.hpp>
-#include <ftxui/component/component.hpp>
-#include <ftxui/dom/canvas.hpp>
+#include <future>
+#include <iostream>
+
+int tps = 0;
+
+void getTPS() {
+  int startTime = std::time(nullptr);
+  tps = 0;
+  void(std::async([&] {
+    while (std::time(nullptr) - startTime < 1) {
+      tps++;
+    }
+
+    std::cout << "\rC++ TPS: " << tps;
+  }));
+
+};
 
 int main() {
-  ftxui::Canvas canvas(20,20);
-
-  return 0;
+  getTPS();
+  std::cout << std::endl;
 }
