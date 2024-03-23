@@ -1,17 +1,9 @@
-// #include <iostream>
-#include <ftxui/dom/elements.hpp>
 #include <ftxui/component/screen_interactive.hpp>
 #include <ftxui/component/component.hpp>
+#include <ftxui/dom/canvas.hpp>
 
 int main() {
-  // init
-  auto screen = ftxui::ScreenInteractive::TerminalOutput();
-  auto component = ftxui::Renderer([&] {
-    return ftxui::vbox({
-      ftxui::text("Hello"),
-      ftxui::text("World"),
-    });
-  });
+  ftxui::Canvas canvas(20,20);
 
   return 0;
 }
