@@ -1,22 +1,9 @@
-#include <future>
-#include <iostream>
-
-int tps = 0;
-
-void getTPS() {
-  int startTime = std::time(nullptr);
-  tps = 0;
-  void(std::async([&] {
-    while (std::time(nullptr) - startTime < 1) {
-      tps++;
-    }
-
-    std::cout << "\rC++ TPS: " << tps;
-  }));
-
-};
+#include "./include/conio.hpp"
 
 int main() {
-  getTPS();
-  std::cout << std::endl;
+  Console console = Console();
+
+  console.clearScreen();
+
+  return 0;
 }
