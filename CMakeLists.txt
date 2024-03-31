@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.15)
 project(cpp_test)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 11)
 
 # build
 add_executable(${CMAKE_PROJECT_NAME} main.cpp)
@@ -12,15 +12,27 @@ include_directories(
   ${CMAKE_INSTALL_PREFIX}/include/
   ${CMAKE_CURRENT_SOURCE_DIR}/include/
 )
+link_directories(
+  ${CMAKE_PREFIX_PATH}/lib/
+  ${CMAKE_INSTALL_PREFIX}/lib/
+  ${CMAKE_CURRENT_SOURCE_DIR}/lib/
+)
 
 set(CMAKE_PREFIX_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/cmake)
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
-find_package(fmt REQUIRED)
+find_package(raylib 3.0 REQUIRED)
+
+# Checks if OSX and links appropriate frameworks (only required on MacOS)
+if (APPLE)
+    target_link_libraries(${PROJECT_NAME} "-framework IOKit")
+    target_link_libraries(${PROJECT_NAME} "-framework Cocoa")
+    target_link_libraries(${PROJECT_NAME} "-framework OpenGL")
+endif()
 
 # 链接库
 target_link_libraries(
   ${CMAKE_PROJECT_NAME}
-  fmt::fmt
+  raylib
 )
 
 target_compile_features(${CMAKE_PROJECT_NAME} PRIVATE cxx_std_17)
