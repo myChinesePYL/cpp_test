@@ -1,9 +1,1 @@
-#include "./include/conio.hpp"
-
-int main() {
-  Console console = Console();
-
-  console.clearScreen();
-
-  return 0;
-}
+int main() { return 0; }
