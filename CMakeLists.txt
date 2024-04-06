@@ -20,9 +20,15 @@ link_directories(
 
 set(CMAKE_PREFIX_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/cmake)
 
+# 查找库
+find_package(ftxui REQUIRED)
+
 # 链接库
 target_link_libraries(
   ${CMAKE_PROJECT_NAME}
+  PRIVATE ftxui::screen
+  PRIVATE ftxui::dom
+  PRIVATE ftxui::component
 )
 
 target_compile_features(${CMAKE_PROJECT_NAME} PRIVATE cxx_std_11)
