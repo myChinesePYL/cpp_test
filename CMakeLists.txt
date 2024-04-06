@@ -19,22 +19,10 @@ link_directories(
 )
 
 set(CMAKE_PREFIX_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/cmake)
-set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
-find_package(raylib 3.0 REQUIRED)
-find_package(fmt REQUIRED)
-
-# Checks if OSX and links appropriate frameworks (only required on MacOS)
-if (APPLE)
-    target_link_libraries(${PROJECT_NAME} "-framework IOKit")
-    target_link_libraries(${PROJECT_NAME} "-framework Cocoa")
-    target_link_libraries(${PROJECT_NAME} "-framework OpenGL")
-endif()
 
 # 链接库
 target_link_libraries(
   ${CMAKE_PROJECT_NAME}
-  raylib
-  fmt::fmt
 )
 
 target_compile_features(${CMAKE_PROJECT_NAME} PRIVATE cxx_std_11)
