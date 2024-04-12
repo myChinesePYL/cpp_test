@@ -4,7 +4,8 @@ project(cpp_test)
 set(CMAKE_CXX_STANDARD 11)
 
 # build
-add_executable(${CMAKE_PROJECT_NAME} main.cpp)
+file(GLOB_RECURSE HppCpp ${CMAKE_CURRENT_SOURCE_DIR}/modules/*.cpp)
+add_executable(${CMAKE_PROJECT_NAME} src/main.cpp ${HppCpp})
 
 # 后期处理
 include_directories(
@@ -26,9 +27,6 @@ find_package(ftxui REQUIRED)
 # 链接库
 target_link_libraries(
   ${CMAKE_PROJECT_NAME}
-  PRIVATE ftxui::screen
-  PRIVATE ftxui::dom
-  PRIVATE ftxui::component
 )
 
 target_compile_features(${CMAKE_PROJECT_NAME} PRIVATE cxx_std_11)
