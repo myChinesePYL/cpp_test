@@ -6,7 +6,6 @@ class ansic {
     void static CursorToHome();
     void static SaveCursor();
     void static RecoverCursor();
-    void static LeftMove();
     void static HideCursor();
     void static ShowCursor();
     void static ClearToEnd();
@@ -72,4 +71,9 @@ class ansic {
     };
     void static SaveScreen();
     void static ReverseScreen();
+    void static ClearScreen();
+    void static MoveCursorUp(int y);
+    void static MoveCursorLeft(int x);
+    void static MoveCursorDown(int y);
+    void static MoveCursorRight(int x);
 };

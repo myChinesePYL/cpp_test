@@ -4,9 +4,8 @@
 
 void ansic::SetCursorTo(int x, int y) {std::printf("\033[%i;%iH", y, x);};
 void ansic::CursorToHome() {std::printf("\033[H");};
-void ansic::SaveCursor() {std::printf("\033[7");};
-void ansic::RecoverCursor() {std::printf("\033[H");};
-void ansic::LeftMove() {std::printf("\033[?");};
+void ansic::SaveCursor() {std::printf("\0337");};
+void ansic::RecoverCursor() {std::printf("\0338");};
 void ansic::HideCursor() {std::printf("\033[?25l");};
 void ansic::ShowCursor() {std::printf("\033[?25h");};
 void ansic::ClearToEnd() {std::printf("\033[K");};
@@ -70,4 +69,10 @@ void ansic::Color::bg_Reset() {std::printf("\033[49m");};
 void ansic::Color::bg_Reset(std::string text) {std::printf("\033[49m%s", text.data());};
 
 void ansic::SaveScreen() {std::printf("\033[?47h");};
-void ansic::ReverseScreen() {std::printf("\033[?47h");};
+void ansic::ReverseScreen() {std::printf("\033[?47l");};
+void ansic::ClearScreen() {std::printf("\033[2J");};
+
+void ansic::MoveCursorUp(int y) {std::printf("\033[%iA", y);};
+void ansic::MoveCursorDown(int y) {std::printf("\033[%iB", y);};
+void ansic::MoveCursorRight(int x) {std::printf("\033[%iC", x);};
+void ansic::MoveCursorLeft(int x) {std::printf("\033[%iD", x);};
