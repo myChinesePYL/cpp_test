@@ -5,7 +5,9 @@ class vec2 {
 		float X;
 		float Y;
 
-		vec2() {}
+		vec2() {
+			X = Y = 0;
+		}
 		vec2(float x, float y) {
 			X = x;
 			Y = y;
@@ -26,7 +28,9 @@ class vec3 {
 		float Y;
 		float Z;
 
-		vec3(){}
+		vec3() {
+			X = Y = Z = 0;
+		}
 		vec3(float x,float y,float z) {
 			X = x;
 			Y = y;
@@ -42,6 +46,36 @@ class vec3 {
 			X = x;
 			Y = y;
 			Z = z;
+		}
+};
+class vec4 {
+	public:
+		float X;
+		float Y;
+		float Z;
+		float W;
+
+		vec4() {
+			X = Y = Z = W = 0;
+		}
+		vec4(float x,float y,float z, float w) {
+			X = x;
+			Y = y;
+			Z = z;
+			W = w;
+		}
+
+		void set(vec4 A) {
+			X = A.X;
+			Y = A.Y;
+			Z = A.Z;
+			W = A.W;
+		}
+		void set(float x,float y,float z, float w) {
+			X = x;
+			Y = y;
+			Z = z;
+			W = w;
 		}
 };
 
