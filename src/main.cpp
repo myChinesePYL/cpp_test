@@ -1,8 +1,7 @@
-#include "core/Color.hpp"
-#include "core/vec.hpp"
 #include "../options.hpp"
 #include <cstdio>
 #include "core/GetTerminalSize.hpp"
+#include "core/Shader.hpp"
 
 int main() {
 #if OPTION_DEBUG
