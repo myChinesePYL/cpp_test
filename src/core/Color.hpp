@@ -1,10 +1,11 @@
+#pragma once
 #include "vec.hpp"
 
 class Color {
 	public:
-		vec::vec3 RGB;
+		vec3 RGB;
 		
-		Color(vec::vec3 rgb) {
-			RGB = rgb;
-		};
+		Color(vec3 rgb) {
+			RGB.set(rgb);
+		}
 };

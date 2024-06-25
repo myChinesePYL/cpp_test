@@ -4,8 +4,7 @@ project(cpp_test)
 set(CMAKE_CXX_STANDARD 14)
 
 # build
-file(GLOB_RECURSE HppCpp ${CMAKE_CURRENT_SOURCE_DIR}/modules/*.cpp)
-add_executable(${CMAKE_PROJECT_NAME} src/main.cpp ${HppCpp})
+add_executable(${CMAKE_PROJECT_NAME} src/main.cpp)
 
 # 后期处理
 include_directories(
