@@ -1,7 +1,7 @@
 #include "../options.hpp"
 #include <cstdio>
 #include "core/GetTerminalSize.hpp"
-#include "core/Buffer.hpp"
+#include "core/Shader.hpp"
 
 int main() {
 #if OPTION_DEBUG
