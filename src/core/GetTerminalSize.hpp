@@ -30,8 +30,8 @@ vec2 GetTerminalSize() {
   struct winsize w;
   vec2 size(0, 0);
   ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
-  size.X = w.ws.row;
-  size.Y = w.ws_col;
+  size.X = (float)w.ws_row;
+  size.Y = (float)w.ws_col;
   if (size.X > 1024 || size.Y > 1024) {
   	throw "That's so big >_< / 太大啦 >_<";
 	}
