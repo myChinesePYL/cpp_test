@@ -1,3 +1,2 @@
-# cpp_test
-字面意思, 用来学习C++的
-为了方便手机传输
+# This is terminal game
+In the making...
